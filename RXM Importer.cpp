@@ -6,6 +6,8 @@
 #include "stdafx.h"
 #include "RXM Importer.h"
 
+using namespace std;
+
 
 int RXMImporter::readRXMFile(const char* addrstr, vector<Model> &model, GLuint defaultShader)
 {

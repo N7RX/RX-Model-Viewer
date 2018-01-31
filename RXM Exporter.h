@@ -5,7 +5,6 @@
 #include <fstream>
 #include "Model.h"
 
-using namespace std;
 
 class RXMExporter
 {

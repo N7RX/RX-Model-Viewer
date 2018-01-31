@@ -4,8 +4,6 @@
 #include <vector>
 #include "Mesh.h"
 
-using namespace std;
-
 typedef vec3 color3;
 
 

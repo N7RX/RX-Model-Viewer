@@ -7,6 +7,8 @@
 #include "stdafx.h"
 #include "StlLoader.h"
 
+using namespace std;
+
 
 int StlLoader::readFile(const char* addrstr, vector<Model> &model)
 {

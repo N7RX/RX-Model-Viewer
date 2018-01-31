@@ -10,8 +10,6 @@
 #define DIFFUSE "diffuse"
 #define SPECULAR "specular"
 
-using namespace std;
-
 typedef vec3 color3;
 
 

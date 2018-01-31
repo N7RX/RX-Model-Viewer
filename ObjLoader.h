@@ -6,7 +6,6 @@
 #include "Model.h"
 #include "CUDA Accelerator.h"
 
-using namespace std;
 
 class ObjLoader
 {

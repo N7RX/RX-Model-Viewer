@@ -6,6 +6,8 @@
 #include "stdafx.h" // Must call first
 #include "ObjLoader.h"
 
+using namespace std;
+
 
 int ObjLoader::readFile(const char* addrstr, vector<Model> &model, GLuint defaultShader, bool multiMesh)
 {

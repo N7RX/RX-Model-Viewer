@@ -11,8 +11,6 @@
 #include "RXM Importer.h"
 #include "RXM Exporter.h"
 
-using namespace std;
-
 
 // Maximum thread number
 #define MAX_THREAD 32
@@ -160,5 +158,4 @@ public:
 	afx_msg void OnBnClickedButtonExportall();
 	afx_msg void OnCbnSelchangeComboMeshindex();
 	afx_msg void OnBnClickedCheckFog();
-	afx_msg void OnCbnSelchangeComboShadow();
 };

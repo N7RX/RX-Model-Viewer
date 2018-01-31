@@ -6,6 +6,8 @@
 #include "stdafx.h"
 #include "RXM Exporter.h"
 
+using namespace std;
+
 
 bool RXMExporter::exportToRXM(Model model, const char* filePath)
 {

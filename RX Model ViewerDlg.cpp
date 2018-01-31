@@ -88,7 +88,7 @@ GLuint skyboxMap;
 color3 light_color(255, 255, 255);
 
 // Environment light position.
-vec3 light_position(0, 0, 1);
+vec3   light_position(0, 0, 1);
 
 // Scene background color. Default is black.
 color3 background_color(0.14, 0.14, 0.14);
@@ -144,7 +144,6 @@ bool enableReflection = false; // Dispaly reflection material or not
 bool enableFog = false;		// Use fog effect or not
 
 int aaLevel = 0;			// Sampling level
-int shadowType = 0;			// Shadow type
 
 // Camera parameters
 // ----------------------------------
@@ -272,7 +271,6 @@ BEGIN_MESSAGE_MAP(CRXModelViewerDlg, CDialogEx)
 	ON_CBN_SELCHANGE(IDC_COMBO_DISPLAYMODE, &CRXModelViewerDlg::OnCbnSelchangeComboDisplaymode)
 	ON_CBN_SELCHANGE(IDC_COMBO_MINDEX, &CRXModelViewerDlg::OnCbnSelchangeComboMindex)
 	ON_CBN_SELCHANGE(IDC_COMBO_MESHINDEX, &CRXModelViewerDlg::OnCbnSelchangeComboMeshindex)
-	ON_CBN_SELCHANGE(IDC_COMBO_SHADOW, &CRXModelViewerDlg::OnCbnSelchangeComboShadow)
 
 	ON_EN_KILLFOCUS(IDC_EDIT_LR, &CRXModelViewerDlg::OnEnKillfocusEditLr)
 	ON_EN_KILLFOCUS(IDC_EDIT_LG, &CRXModelViewerDlg::OnEnKillfocusEditLg)
@@ -422,8 +420,7 @@ BOOL CRXModelViewerDlg::OnInitDialog()
 	editBox->SetWindowText(_T("0.00"));
 
 	CComboBox* cmb_function = (CComboBox*)GetDlgItem(IDC_COMBO_SHADOW);
-	cmb_function->AddString(_T("无投影"));
-	cmb_function->AddString(_T("硬阴影"));
+	cmb_function->AddString(_T("Hard Shadow"));
 	cmb_function->SetCurSel(0);
 
 	cmb_function = ((CComboBox*)GetDlgItem(IDC_COMBO_MOVE));
@@ -474,11 +471,11 @@ BOOL CRXModelViewerDlg::OnInitDialog()
 	tm = CTime::GetCurrentTime();
 	str = tm.Format("Program Initiated. %m/%d/%Y %X"); // Display system time
 	outputBox->AddString(str);
-	outputBox->AddString(_T("Product Version: 1.5.4.1.cn Feature Level 3"));
+	outputBox->AddString(_T("Product Version: 1.5.4.1. Feature Level 3"));
 	outputBox->AddString(_T("Supported Parsers: ObjLoader; StlLoader; RXMImporter; RXMExporter"));
 	outputBox->AddString(_T("Installed Mods: CUDA Accelerator;"));
 	outputBox->AddString(_T("API: OpenGL 4.5"));
-	outputBox->AddString(_T("Shader Versions Supported: Vertex: 4.1; Fragment 4.1;"));
+	outputBox->AddString(_T("Shader Versions Supported: Vertex: 3.3; Fragment 3.3;"));
 	outputBox->AddString(_T("> This is the internal beta version. Functions are limited, still under development."));
 	outputBox->AddString(_T("--------------------------------------------------------------------------"));
 	outputBox->AddString(_T("CUDA Acceleration requires CUDA support."));
@@ -1772,12 +1769,12 @@ void CRXModelViewerDlg::OnBnClickedButtonPauseanim()
 
 	if (playAnimation) {
 		playAnimation = false;
-		pBtn->SetWindowText(_T("继续播放"));
+		pBtn->SetWindowText(_T("Continue"));
 		outputBox->AddString(_T("> Animation Paused."));
 	}
 	else {
 		playAnimation = true;
-		pBtn->SetWindowText(_T("暂停全部"));
+		pBtn->SetWindowText(_T("Pause All"));
 		outputBox->AddString(_T("> Animation Continued."));
 	}
 }
@@ -2625,13 +2622,6 @@ void CRXModelViewerDlg::OnBnClickedCheckFog()
 
 	if (!firstModel)
 		glutPostRedisplay();
-}
-
-// Switch shadow types
-void CRXModelViewerDlg::OnCbnSelchangeComboShadow()
-{
-	CComboBox* cmb_function = (CComboBox*)GetDlgItem(IDC_COMBO_SHADOW);
-	shadowType = cmb_function->GetCurSel();
 }
 
 #pragma endregion

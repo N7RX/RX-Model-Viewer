@@ -37,7 +37,7 @@ static GLuint loadCubemap(std::vector<const GLchar*> faces)
 // Load a common 2D texture
 static GLuint loadTexture(const GLchar* path)
 {
-	// Generate texture ID and load texture data 
+	//Generate texture ID and load texture data 
 	GLuint textureID;
 	glGenTextures(1, &textureID);
 	int width, height;
