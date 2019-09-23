@@ -27,8 +27,8 @@ Executing the program requires OpenGL library environment.
 
 **Screenshots**
 
-![Alt text](/README_pix/Screenshot_1.jpg)
+![Alt text](/README_pix/Screenshot_1.JPG)
 
-![Alt text](/README_pix/Screenshot_2.jpg)
+![Alt text](/README_pix/Screenshot_2.JPG)
 
-![Alt text](/README_pix/Screenshot_3.jpg)
+![Alt text](/README_pix/Screenshot_3.JPG)
